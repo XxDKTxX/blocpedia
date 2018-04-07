@@ -35,6 +35,12 @@
  
  gem 'thor', '0.19.1'
  
+ gem 'devise'
+ 
+ group :development, :test do
+  gem 'rspec-rails', '~> 3.7'
+end
+ 
  group :development do
    gem 'listen', '~> 3.0.5'
  end
