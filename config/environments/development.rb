@@ -1,7 +1,5 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
@@ -37,7 +35,21 @@ Rails.application.configure do
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
-
-  # Raises error for missing translations
-  # config.action_view.raise_on_missing_translations = true
+  
+  # code for mailer
+  config.action_mailer.default_url_options = { host: 'http://blocpedia-logic615.c9users.io'}
+  config.action_mailer.raise_delivery_errors = true # to raise error if smtp has error on setup
+  config.action_mailer.default :charset => "utf-8"
+  
+  require 'net/smtp'
+    ActionMailer::Base.delivery_method = :smtp
+     config.action_mailer.perform_deliveries = true
+     config.action_mailer.default :charset => "utf-8"
+       ActionMailer::Base.smtp_settings = {
+       :address              => "smtp.gmail.com",
+       :port                 => 587,
+       :user_name            => "devintassie@gmail.com",
+       :password             => 'Deta2741',
+       :authentication       => "plain",
+       }
 end
