@@ -1,0 +1,12 @@
+<h1>Wiki#show</h1>
+
+      
+      <h1><%= @wiki.title %></h3>
+      <p><%= @wiki.body %></p>
+     
+  
+     
+   <%= button_to 'Edit',  edit_wiki_url(@wiki.id), :method => :get, class: 'btn btn-success' %>
+   
+   
+   <%=button_to "Delete",wiki_path(@wiki.id), :method => :delete,  class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this post?' } %>

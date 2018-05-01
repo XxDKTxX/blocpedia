@@ -8,6 +8,10 @@
  # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
  gem 'rails', '~> 5.1.2'
  
+ gem 'devise'
+ 
+ gem 'bootstrap'
+ 
  group :production do
    # Use pg as the production database for Active Record
    gem 'pg'
@@ -35,7 +39,6 @@
  
  gem 'thor', '0.19.1'
  
- gem 'devise'
  
  group :development, :test do
   gem 'rspec-rails', '~> 3.7'

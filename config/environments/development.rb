@@ -36,6 +36,8 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
   
+  config.web_console.whitelisted_ips=[]
+  
   # code for mailer
   config.action_mailer.default_url_options = { host: 'http://blocpedia-logic615.c9users.io'}
   config.action_mailer.raise_delivery_errors = true # to raise error if smtp has error on setup
