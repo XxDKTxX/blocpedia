@@ -35,8 +35,9 @@ class WikisController < ApplicationController
       puts params
      @wiki = Wiki.find(params[:id])
      
-    
-      
+      @wiki.title = params[:wiki][:title]
+      @wiki.body = params[:wiki][:body]
+     
      if @wiki.save
        flash[:notice] = "Post was saved."
        redirect_to wiki_path
