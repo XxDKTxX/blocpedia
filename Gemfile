@@ -12,6 +12,8 @@
  
  gem 'bootstrap'
  
+ gem 'pundit'
+ 
  group :production do
    # Use pg as the production database for Active Record
    gem 'pg'

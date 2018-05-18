@@ -1,3 +1,5 @@
+
+
 class WikisController < ApplicationController
   
   def index
@@ -31,9 +33,11 @@ class WikisController < ApplicationController
   end
 
   def update
-      
-      puts params
+    
      @wiki = Wiki.find(params[:id])
+
+     authorize @wiki, :update?
+  
      
       @wiki.title = params[:wiki][:title]
       @wiki.body = params[:wiki][:body]
