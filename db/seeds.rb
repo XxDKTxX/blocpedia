@@ -10,7 +10,22 @@ require 'randomdata'
   
  end
 
- wikis = Wiki.all
+
+ 
+ 
+ 50.times do
+     user = User.create!(
+         email: RandomData.random_word + '@' + RandomData.random_word,
+         password: RandomData.random_sentence
+         )
+         
+     end
+     
+  
+
+puts "seeding finished"     
+puts "#{User.count} users created"
+puts "#{Wiki.count} wikis created"
  
  
  
