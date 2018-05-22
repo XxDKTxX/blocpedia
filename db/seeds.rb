@@ -1,11 +1,12 @@
-require 'randomdata'
+# require 'randomdata'
+require 'faker'
 
 50.times do
 
    wiki = Wiki.create!(
 
-     title: RandomData.random_sentence,
-     body:  RandomData.random_paragraph
+     title: Faker::Book.title,
+     body:  Faker::RickAndMorty.quote
    )
   
  end
@@ -15,8 +16,8 @@ require 'randomdata'
  
  50.times do
      user = User.create!(
-         email: RandomData.random_word + '@' + RandomData.random_word,
-         password: RandomData.random_sentence
+        email: Faker::Internet.unique.email,
+         password: Faker::Internet.unique.password
          )
          
      end
@@ -26,6 +27,5 @@ require 'randomdata'
 puts "seeding finished"     
 puts "#{User.count} users created"
 puts "#{Wiki.count} wikis created"
- 
  
  
