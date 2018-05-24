@@ -3,7 +3,11 @@
 class WikisController < ApplicationController
   
   def index
+    
+    authorize @wiki, :index?
+    
     @wikis = Wiki.all
+    
   end
  
   def show
@@ -18,6 +22,8 @@ class WikisController < ApplicationController
     @wiki = Wiki.new
     @wiki.title = params[:title]
     @wiki.body = params[:body]
+    
+    authorize @wiki, :create?
     
      if @wiki.save
        flash[:notice] = "Post was saved."
