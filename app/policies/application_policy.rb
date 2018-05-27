@@ -4,35 +4,36 @@ class ApplicationPolicy
   def initialize(user, record)
     @user = user
     @record = record
+   
   end                
 
-  # def index?
-  #   false
-  # end
+  def index?
+    true
+  end
 
-  # def show?
-  #   scope.where(:id => record.id).exists?
-  # end
+  def show?
+    true
+  end
 
-  # def create?
-  #   false
-  # end
+  def create?
+    user.present?
+  end
 
-  # def new?
-  #   create?
-  # end
+  def new?
+    user.present?
+  end
 
   def update?
     user.present?
   end
 
-  # def edit?
-  #   update?
-  # end
+  def edit?
+    user.present?
+  end
 
-  # def destroy?
-  #   false
-  # end
+  def destroy?
+    Wiki.user.present?
+  end
 
   # def scope
   #   Pundit.policy_scope!(user, record.class)

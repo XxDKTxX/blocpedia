@@ -5,6 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
          
          before_save { self.role ||= :member }
-         enum role: [:member, :admin]
+         enum role: [:member, :premium, :admin]
 
 end

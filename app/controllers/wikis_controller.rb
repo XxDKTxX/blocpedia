@@ -1,23 +1,32 @@
-
+require 'pundit'
 
 class WikisController < ApplicationController
   
   def index
+    
     @wikis = Wiki.all
+    
+    authorize Wiki, :index?
+    
   end
  
   def show
+      authorize Wiki, :index?
     @wiki = Wiki.find(params[:id])
   end
 
   def new
+      authorize Wiki, :new?
     @wiki = Wiki.new
   end
 
   def create
+      
     @wiki = Wiki.new
     @wiki.title = params[:title]
     @wiki.body = params[:body]
+    
+    authorize Wiki, :create?
     
      if @wiki.save
        flash[:notice] = "Post was saved."
@@ -29,14 +38,17 @@ class WikisController < ApplicationController
   end
   
   def edit
+      
     @wiki = Wiki.find(params[:id])
+    
+     authorize Wiki, :edit?
   end
 
   def update
     
      @wiki = Wiki.find(params[:id])
 
-     authorize @wiki, :update?
+     authorize Wiki, :update?
   
      
       @wiki.title = params[:wiki][:title]
@@ -53,6 +65,9 @@ class WikisController < ApplicationController
 
 
   def destroy
+      
+      
+      
        @wiki = Wiki.find(params[:id])
  
 
