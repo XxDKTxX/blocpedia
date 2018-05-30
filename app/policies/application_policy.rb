@@ -32,7 +32,7 @@ class ApplicationPolicy
   end
 
   def destroy?
-    Wiki.user.present?
+    user.present? && record.user == user
   end
 
   # def scope
