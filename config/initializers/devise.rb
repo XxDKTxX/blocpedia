@@ -253,6 +253,8 @@ Devise.setup do |config|
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :get
   
+  config.secret_key = '506374d42838eef3c510793607c9791c14cd67f7b9db1b024f8ec2d2dad7bd99dadfb142210b2647024c54edf2adbb0ac3a04a140ae9ba5630bedd11463ef01b'
+  
   config.reconfirmable = false
   
   config.mailer_sender = 'devintassie@gmail.com'
