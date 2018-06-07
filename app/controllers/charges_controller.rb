@@ -13,7 +13,7 @@ class ChargesController < ApplicationController
         )
         
       
-        current_user.role = 'premium'
+        current_user.update_attribute(:role, 'premium')
         
         flash[:notice] = "Thanks for all the money, #{current_user.email}! Feel free to pay me again."
 
