@@ -5,10 +5,11 @@ require 'faker'
 
  
  
- 50.times do
+ 5.times do
      user = User.create!(
      email: Faker::Internet.unique.email,
-     password: Faker::Internet.unique.password
+     password: Faker::Internet.unique.password,
+     
  )
  end
   
@@ -18,7 +19,7 @@ require 'faker'
 
      title: Faker::Book.title,
      body:  Faker::RickAndMorty.quote,
-     user: User.limit(1).order("RANDOM()")
+     # user: User.limit(1).order("RANDOM()")
  )
  end
 

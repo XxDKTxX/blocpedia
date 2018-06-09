@@ -8,5 +8,9 @@ class User < ApplicationRecord
          has_many :wikis
          before_save { self.role ||= :standard }
          
+  def going_public
+    self.wikis.each { |wiki| puts wiki.publicize }
+  end
+         
 
 end
