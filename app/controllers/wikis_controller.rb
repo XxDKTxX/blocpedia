@@ -46,15 +46,13 @@ class WikisController < ApplicationController
   end
   
   def edit
-   
-    @wiki = Wiki.find(params[:id])
+     wiki_params
      authorize Wiki, :edit?
   end
 
   def update
     
-     @wiki = Wiki.find(params[:id])
-
+     wiki_params
      authorize Wiki, :update?
   
      
@@ -84,5 +82,11 @@ class WikisController < ApplicationController
        render :show
      end
   end
+  
+  
+  private
+    def wiki_params
+         @wiki = Wiki.find(params[:id])
+    end
 end
 
