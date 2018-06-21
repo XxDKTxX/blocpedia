@@ -1,10 +1,16 @@
-class Wiki < ApplicationRecord
-  belongs_to :user
+
+class Wiki < ActiveRecord::Base
+   belongs_to :user
+
+  has_many :collaborators
+  has_many :users, through: :collaborators
+   
+
+  after_initialize :initialize_role
   
-  before_save { wiki.private ||= false }
-  scope :visible_to, -> (user) { user ? all : where(private: false) }
+  private
   
-  def publicize
-    update_attribute(:private, false)
+  def initialize_role
+    self.private = false if self.private.nil?
   end
-end
+end 
