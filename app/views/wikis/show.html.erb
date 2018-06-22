@@ -4,7 +4,7 @@
       <h1><%= @wiki.title %></h3>
       <p><%= @wiki.body %></p>
      
-      <p>Created by <%= @wiki.user.email %></p>
+      <p>Created by <%= @wiki.user %></p>
       <p>Collaborators:
         <% unless @wiki.collaborators.empty? %>
         <% @wiki.collaborators.each do |collaborator| %>
